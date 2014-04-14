@@ -54,7 +54,7 @@ abstract class Service
      *
      * @ORM\Column(name="indicate", type="integer")
      */
-    private $indicate;
+    private $indicate; //signalement abus
 
      /**
      * @var integer
@@ -68,7 +68,7 @@ abstract class Service
      *
      * @ORM\Column(name="visibility", type="boolean")
      */
-    private $visibility;
+    private $visibility;//visibilité de l'annonce sur le site si abus ou vente terminee
 
 	
 	public function __construct() {
