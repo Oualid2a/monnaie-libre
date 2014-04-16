@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CarpoolingType extends AbstractType
+class CouchSurfingType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -18,23 +18,13 @@ class CarpoolingType extends AbstractType
             ->add('title')
             ->add('creationDate')
             ->add('comment')
-            //->add('indicate')
-            ->add('price')
-            ->add('departure')
-            ->add('arrival')
-            ->add('meetingPoint')
-            ->add('arrivalPoint')
-            ->add('bends')
-            ->add('departureDate')
-            ->add('estimatedDuration')
-            ->add('estimatedDistance')
-            ->add('packageTransport')
-            ->add('packageSize')
-            ->add('car')
-            ->add('smoker')
-            ->add('pets')
-            ->add('music')
-            
+            ->add('location')
+            ->add('dateStart')
+            ->add('dateEnd')
+            ->add('hourStart')
+            ->add('hourEnd')
+            ->add('limitGuest')
+            ->add('limitNumberOfGuest')
         ;
     }
     
@@ -44,7 +34,7 @@ class CarpoolingType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Ml\ServiceBundle\Entity\Carpooling'
+            'data_class' => 'Ml\ServiceBundle\Entity\CouchSurfing'
         ));
     }
 
@@ -53,6 +43,6 @@ class CarpoolingType extends AbstractType
      */
     public function getName()
     {
-        return 'ml_servicebundle_carpooling';
+        return 'ml_servicebundle_couchsurfing';
     }
 }

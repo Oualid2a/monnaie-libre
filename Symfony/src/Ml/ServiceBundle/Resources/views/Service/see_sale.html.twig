@@ -1,0 +1,29 @@
+ {% extends "MlServiceBundle::layout.html.twig" %}
+
+{% block title %}
+ {{ parent() }} - Service - See - Couchsurfing
+{% endblock %}
+	
+{% block service_body %}
+
+	{% if sal is not null %}
+		<div class="well">
+				<h3 id = "title_reservation"><b>{{ sal.title }}</b></h3>
+				<h4 class = "service">Creator :</h4> {{ sal.user.login }}
+				<h4 class = "service">Creation Date :</h4> {{ sal.creationDate|date("d/m/Y") }}
+				<h4 class = "service">Comment :</h4> 
+				{% if sal.comment is null %} 
+					No comment 
+				{% endif %} 
+				{% if sal.comment is not null %} 
+					{{ sal.comment }}
+				{% endif %}
+				<h4 class = "service">Price :</h4> {{ sal.price }} Flouzz
+				<br>
+				<form action="" method="post">
+					<input type="submit" class="btn btn-primary" id="form_reservation" value = "Confirm" />
+				</form>
+		</div>
+	{% endif %}
+
+{% endblock %}

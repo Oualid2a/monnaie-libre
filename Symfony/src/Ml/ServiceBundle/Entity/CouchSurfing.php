@@ -3,6 +3,7 @@
 namespace Ml\ServiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ml\ServiceBundle\Entity\Service;
 
 /**
  * CouchSurfing
@@ -31,23 +32,30 @@ class CouchSurfing extends Service
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="dateStart", type="date")
      */
-    protected $dateReservation;
+    protected $dateStart;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="start", type="time")
+     * @ORM\Column(name="dateEnd", type="date")
      */
-    protected $start;
+    protected $dateEnd;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="end", type="time")
+     * @ORM\Column(name="hourStart", type="time")
      */
-    protected $end;
+    protected $hourStart;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="hourEnd", type="time")
+     */
+    protected $hourEnd;
 
     /**
      * @var boolean
@@ -63,11 +71,21 @@ class CouchSurfing extends Service
      */
     protected $limitNumberOfGuest;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    protected $type;
 
     public function __construct() {
         parent::__construct();
         $this->type = "CouchSurfing";
-        $this->dateReservation = date_create(date('Y-m-d'));
+        $this->dateStart = date_create(date('Y-m-d'));
+        $this->dateEnd = date_create(date('Y-m-d'));
+
+        
+
     }
 
     /**
@@ -216,5 +234,113 @@ class CouchSurfing extends Service
     public function getLimitNumberOfGuest()
     {
         return $this->limitNumberOfGuest;
+    }
+    public function setType($type)
+    {
+        $this->type = $type;
+    
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set dateStart
+     *
+     * @param \DateTime $dateStart
+     * @return CouchSurfing
+     */
+    public function setDateStart($dateStart)
+    {
+        $this->dateStart = $dateStart;
+
+        return $this;
+    }
+
+    /**
+     * Get dateStart
+     *
+     * @return \DateTime 
+     */
+    public function getDateStart()
+    {
+        return $this->dateStart;
+    }
+
+    /**
+     * Set dateEnd
+     *
+     * @param \DateTime $dateEnd
+     * @return CouchSurfing
+     */
+    public function setDateEnd($dateEnd)
+    {
+        $this->dateEnd = $dateEnd;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEnd
+     *
+     * @return \DateTime 
+     */
+    public function getDateEnd()
+    {
+        return $this->dateEnd;
+    }
+
+    /**
+     * Set hourStart
+     *
+     * @param \DateTime $hourStart
+     * @return CouchSurfing
+     */
+    public function setHourStart($hourStart)
+    {
+        $this->hourStart = $hourStart;
+
+        return $this;
+    }
+
+    /**
+     * Get hourStart
+     *
+     * @return \DateTime 
+     */
+    public function getHourStart()
+    {
+        return $this->hourStart;
+    }
+
+    /**
+     * Set hourEnd
+     *
+     * @param \DateTime $hourEnd
+     * @return CouchSurfing
+     */
+    public function setHourEnd($hourEnd)
+    {
+        $this->hourEnd = $hourEnd;
+
+        return $this;
+    }
+
+    /**
+     * Get hourEnd
+     *
+     * @return \DateTime 
+     */
+    public function getHourEnd()
+    {
+        return $this->hourEnd;
     }
 }

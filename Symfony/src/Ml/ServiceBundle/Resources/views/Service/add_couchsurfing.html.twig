@@ -1,0 +1,26 @@
+{% extends "MlServiceBundle::layout.html.twig" %}
+
+{% block title %}
+ {{ parent() }} - Service - Add - CouchSurfing
+{% endblock %}
+	
+{% block service_body %}
+
+	{% if form is defined %}
+		<table class="table">
+			<tr>
+				<td>
+					<div class="well">
+						<form method="post" class="CouchSurfing" {{ form_enctype(form) }}>
+							<h3 id = "title_form"><b>Create an event</b></h3>
+							{{ form_widget(form) }}
+							<input type="submit" class="btn btn-primary" id="form_validatation" />
+						</form>
+					</div>
+				</td>
+				
+			</tr>
+		</table>
+	{% endif %}
+
+{% endblock %}

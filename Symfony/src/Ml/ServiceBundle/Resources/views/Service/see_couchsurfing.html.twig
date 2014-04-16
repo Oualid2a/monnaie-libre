@@ -1,0 +1,38 @@
+{% extends "MlServiceBundle::layout.html.twig" %}
+
+{% block title %}
+ {{ parent() }} - Service - See - Couchsurfing
+{% endblock %}
+	
+{% block service_body %}
+
+	{% if couch is not null %}
+		<div class="well">
+				<h3 id = "title_reservation"><b>{{ couch.title }}</b></h3>
+				<h4 class = "service">Creator :</h4> {{ couch.user.login }}
+				<h4 class = "service">Creation Date :</h4> {{ couch.creationDate|date("d/m/Y") }}
+				<h4 class = "service">Comment :</h4> 
+				{% if couch.comment is null %} 
+					No comment 
+				{% endif %} 
+				{% if couch.comment is not null %} 
+					{{ couch.comment }}
+				{% endif %}
+				<h4 class = "service">Location :</h4> {{ couch.location }}
+				<h4 class = "service">Starts on :</h4> {{ couch.dateStart|date("d/m/Y") }} {{couch.hourStart|date("h:m:s")}}
+				<h4 class = "service">Ends :</h4> {{ couch.dateEnd|date("d/m/Y") }} {{couch.hourEnd|date("h:m:s")}} 
+				<h4 class = "service">Limit of guest(s) :</h4> 
+				{% if couch.limitGuest == true %} 
+					<h4 class="service">{{couch.limitNumberOfGuest}}</h4>
+				{% endif %}
+				{% if couch.limitGuest == false %} 
+					NO LIMIT !
+				{% endif %}
+				<br>
+				<form action="" method="post">
+					<input type="submit" class="btn btn-primary" id="form_reservation" value = "Confirm" />
+				</form>
+		</div>
+	{% endif %}
+
+{% endblock %}

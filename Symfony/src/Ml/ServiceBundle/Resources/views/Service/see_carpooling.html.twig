@@ -15,10 +15,10 @@
 				{% if carpool.comment is null %} 
 					No comment 
 				{% endif %} 
-				{% if carpool.comment is null %} 
+				{% if carpool.comment is not null %} 
 					{{ carpool.comment }}
 				{% endif %}
-				<h4 class = "service">Price :</h4> {{ carpool.price }} €
+				<h4 class = "service">Price :</h4> {{ carpool.price }} Flouzz
 				<h4 class = "service">Departure :</h4> {{ carpool.departure }} 
 				<h4 class = "service">Meeting Point :</h4> {{ carpool.meetingPoint }}
 				<h4 class = "service">Arrival :</h4> {{ carpool.arrival }} 
@@ -32,27 +32,27 @@
 				<h4 class = "service">Car :</h4> {{ carpool.car }} 
 				<h4 class = "service">Smoker :</h4> 
 				{% if carpool.smoker == true %} 
-					Oui
+					Yes
 				{% endif %}
 				{% if carpool.smoker == false %} 
-					Non
+					No
 				{% endif %}
 				<h4 class = "service">Pets :</h4> 
 				{% if carpool.pets == true %} 
-					Oui
+					Yes
 				{% endif %}
 				{% if carpool.pets == false %} 
-					Non
+					No
 				{% endif %}
 				<h4 class = "service">Music :</h4> 
 				{% if carpool.music == true %}
-					Oui
+					Yes
 				{% endif %}
 				{% if carpool.music == false %}
-					Non
+					No
 				{% endif %}<br>
 				<form action="" method="post">
-					<input type="submit" class="btn btn-primary" id="form_reservation" value = "Réserver" />
+					<input type="submit" class="btn btn-primary" id="form_reservation" value = "Confirm" />
 				</form>
 		</div>
 	{% endif %}
